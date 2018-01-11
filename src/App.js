@@ -22,10 +22,10 @@ class App extends Component {
         <Header />
 
         <Router history={hashHistory}>
-          <switch>
+          <div>
             <Route exact path="/" component={Home} />
             <Route exact path="/posts" component={AllPosts} />
-          </switch>
+          </div>
         </Router>
 
         <Footer />
