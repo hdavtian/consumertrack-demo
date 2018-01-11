@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import './includes/jquery';
-// window.jQuery = window.$ = $;
-import '../node_modules/jquery/dist/jquery.min.js';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-
+import {Router, Route} from 'react-router';
+import {createHashHistory, createBrowserHistory} from 'history';
 
 // my components
 import Home from './components/Home';
@@ -13,12 +12,23 @@ import Footer from './components/Footer';
 
 class App extends Component {
   render() {
+
+    const hashHistory = createHashHistory();
+    const browserHistory = createBrowserHistory();
+
     return (
       <div className="App">
         <Header />
-        <Home />
-        <Footer />
 
+        <Router history={browserHistory}>
+          <switch>
+            <Route path="/" exact component={Home}>
+              <Route path="j" component={Home} />
+            </Route>
+          </switch>
+        </Router>
+
+        <Footer />
       </div>
     );
   }
