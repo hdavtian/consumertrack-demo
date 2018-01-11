@@ -5,8 +5,7 @@ import User from '../user/user';
 export default class AllUsers extends Component {
 
   constructor(props){
-    super(props)
-
+    super(props);
     this.state = {
       users: []
     }
@@ -22,8 +21,8 @@ export default class AllUsers extends Component {
   render(){
 
     const _users = this.state.users.map(function(user){
-          return <User key={user.id} data={user} />
-        })
+      return <User key={user.id} data={user} />
+    })
 
     return(
       <div>
