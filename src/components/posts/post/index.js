@@ -4,7 +4,7 @@ export default class Post extends Component {
   render(){
     return(
       <div>
-        <h3>{this.props.post.handle}</h3>
+        <h3>{this.props.data.handle}</h3>
       </div>
     )
   }

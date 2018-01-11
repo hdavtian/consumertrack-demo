@@ -22,13 +22,13 @@ export default class AllPosts extends Component {
   render(){
 
     const listItems = this.state.posts.map(function(post){
-          return <li>{[post.handle]}</li>
+          return <Post key={post.id} data={post} />
         })
 
     return(
-      <ul>
+      <div>
         {listItems}
-      </ul>
+      </div>
     )
   }
 }
