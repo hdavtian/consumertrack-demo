@@ -9,6 +9,7 @@ import {createHashHistory, createBrowserHistory} from 'history';
 import Home from './components/Home';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import AllPosts from './components/posts/all-posts';
 
 class App extends Component {
   render() {
@@ -20,11 +21,10 @@ class App extends Component {
       <div className="App">
         <Header />
 
-        <Router history={browserHistory}>
+        <Router history={hashHistory}>
           <switch>
-            <Route path="/" exact component={Home}>
-              <Route path="j" component={Home} />
-            </Route>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/posts" component={AllPosts} />
           </switch>
         </Router>
 
