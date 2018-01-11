@@ -6,10 +6,10 @@ import {Router, Route} from 'react-router';
 import {createHashHistory, createBrowserHistory} from 'history';
 
 // my components
-import Home from './components/Home';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import AllPosts from './components/posts/all-posts';
+import Header from './components/Header/header';
+import Footer from './components/Footer/footer';
+import AllUsers from './components/posts/all-users/all-users';
+import AllPosts from './components/posts/all-posts/all-posts';
 
 class App extends Component {
   render() {
@@ -23,7 +23,8 @@ class App extends Component {
 
         <Router history={hashHistory}>
           <div>
-            <Route exact path="/" component={Home} />
+            <Route exact path="/" component={AllUsers} />
+            <Route exact path="/users" component={AllUsers} />
             <Route exact path="/posts" component={AllPosts} />
           </div>
         </Router>

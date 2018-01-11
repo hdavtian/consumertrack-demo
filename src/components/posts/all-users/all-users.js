@@ -1,33 +1,33 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import Post from '../post';
+import User from '../user/user';
 
-export default class AllPosts extends Component {
+export default class AllUsers extends Component {
 
   constructor(props){
     super(props)
 
     this.state = {
-      posts: []
+      users: []
     }
   }
 
   componentDidMount(){
     axios
       .get('https://dev-selfiegram.consumertrack.com/users')
-      .then(res => this.setState({posts: res.data}))
+      .then(res => this.setState({users: res.data}))
       .catch(err => console.log(err))
   }
 
   render(){
 
-    const listItems = this.state.posts.map(function(post){
-          return <Post key={post.id} data={post} />
+    const _users = this.state.users.map(function(user){
+          return <User key={user.id} data={user} />
         })
 
     return(
       <div>
-        {listItems}
+        {_users}
       </div>
     )
   }
