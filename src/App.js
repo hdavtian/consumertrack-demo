@@ -25,7 +25,6 @@ class App extends Component {
 
         <Router history={hashHistory}>
           <div>
-            <Link to="/users">Users</Link> | <Link to="/posts">Posts</Link>
             <Route exact path="/" component={AllUsers} />
             <Route exact path="/users" component={AllUsers} />
             <Route exact path="/posts" component={AllPosts} />
