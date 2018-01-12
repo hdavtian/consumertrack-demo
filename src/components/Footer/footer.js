@@ -5,7 +5,8 @@ export default class Footer extends React.Component {
   render(){
     return(
       <footer>
-        By: Harma Davtian
+        By: Harma Davtian <br />
+        <i className="fa fa-heart"></i>
       </footer>
     )
   }
