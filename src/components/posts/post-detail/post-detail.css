@@ -1,0 +1,8 @@
+.post-detail img {
+  border: 1px solid #ccc;
+}
+
+.post-detail .content {
+  text-align: left;
+  padding: 15px;
+}

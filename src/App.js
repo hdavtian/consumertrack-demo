@@ -12,6 +12,7 @@ import Footer from './components/Footer/footer';
 import AllUsers from './components/posts/all-users/all-users';
 import AllPosts from './components/posts/all-posts/all-posts';
 import PostsByUser from './components/posts/posts-by-user/posts-by-user';
+import PostDetail from './components/posts/post-detail/post-detail';
 
 class App extends Component {
   render() {
@@ -29,6 +30,7 @@ class App extends Component {
             <Route exact path="/users" component={AllUsers} />
             <Route exact path="/posts" component={AllPosts} />
             <Route exact path="/posts/:userId" component={PostsByUser} />
+            <Route exact path="/post/:userId/:postId" component={PostDetail} />
           </div>
         </Router>
 
