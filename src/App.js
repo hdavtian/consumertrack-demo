@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import './includes/jquery';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import {Router, Route} from 'react-router';
-import {Link} from 'react-router-dom';
 import {createHashHistory, createBrowserHistory} from 'history';
 
 // my components
@@ -26,7 +24,7 @@ class App extends Component {
 
         <Router history={hashHistory}>
           <div>
-            <Route exact path="/" component={AllUsers} />
+            <Route exact path="/" component={AllPosts} />
             <Route exact path="/users" component={AllUsers} />
             <Route exact path="/posts" component={AllPosts} />
             <Route exact path="/posts/:userId" component={PostsByUser} />

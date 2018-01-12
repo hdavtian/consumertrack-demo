@@ -23,7 +23,6 @@ export default class PostDetail extends Component {
         .then(
             (res) => {
               let _posts = res.data.posts;
-                console.log('res:', _posts);
                 for (let i=0, l=_posts.length; i<l; i++){
                     if(_posts[i].id == postId){
                       this.setState({post: _posts[i]})
@@ -43,7 +42,6 @@ export default class PostDetail extends Component {
   render(){
     return(
       <div className="post-detail">
-          <p>{JSON.stringify(this.state.post)}</p>
 
         <div className="row">
 
@@ -54,6 +52,7 @@ export default class PostDetail extends Component {
           <div className="content-wrapper col-sm-6">
             <h2>{this.state.post.caption}</h2>
             <p>By: {this.state.post.author}</p>
+            <div>{JSON.stringify(this.state.post)}</div>
           </div>
 
         </div>

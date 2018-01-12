@@ -20,7 +20,7 @@ export default class PostsByUser extends Component {
       .then(res => this.setState({posts: res.data.posts}))
       .catch(err => console.log(err));
 
-      console.log('url params:', this.props.location.pathname.split('\/')[2]);
+      //console.log('url params:', this.props.location.pathname.split('\/')[2]);
   }
 
   render(){
