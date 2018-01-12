@@ -1,0 +1,22 @@
+.post-detail {
+
+  .photo-wrapper {
+
+    .photo {
+      width: 350px;
+      height: 300px;
+      margin: 0 auto;
+      border: 1px solid #ccc;
+      background-position: center center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+  }//photo-wrapper
+
+  .content-wrapper {
+    text-align: left;
+    padding: 15px;
+  }
+
+}//post-detail

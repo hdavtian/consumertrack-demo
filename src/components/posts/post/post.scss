@@ -3,10 +3,13 @@
   width: 300px;
   border: 1px solid #ccc;
   margin: 5px 5px 0 0;
-  padding: 15px; }
-  .post .photo {
+  padding: 15px;
+
+  .photo {
     display: block;
     height: 150px;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center center; }
+    background-position: center center;
+  }
+}//post

@@ -1,12 +1,15 @@
 .user {
   display: inline-block;
   margin: 5px 5px 0 0;
-  padding: 15px; }
-  .user .photo {
+  padding: 15px;
+
+  .photo {
     display: block;
     height: 150px;
     width: 150px;
     border: 1px solid #ccc;
     border-radius: 50%;
     background-repeat: no-repeat;
-    background-size: cover; }
+    background-size: cover;
+  }
+}//user
