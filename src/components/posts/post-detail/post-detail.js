@@ -7,10 +7,7 @@ export default class PostDetail extends Component {
   constructor(props){
     super(props);
     this.state = {
-      post: {},
-        test: {
-          name: "Harma Davtian"
-        }
+      post: {}
     }
   };
 
@@ -50,11 +47,11 @@ export default class PostDetail extends Component {
 
         <div className="row">
 
-          <div className="photo col-sm-6">
-            <img className="responsive" src={this.state.post.photo_url} />
+          <div className="photo-wrapper col-sm-6">
+            <div className="photo" style={{'backgroundImage' : 'url(' + this.state.post.photo_url + ')'}}></div>
           </div>
 
-          <div className="content col-sm-6">
+          <div className="content-wrapper col-sm-6">
             <h2>{this.state.post.caption}</h2>
             <p>By: {this.state.post.author}</p>
           </div>

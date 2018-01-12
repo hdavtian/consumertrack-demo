@@ -1,8 +1,17 @@
-.post-detail img {
-  border: 1px solid #ccc;
+.post-detail .photo-wrapper {
 }
 
-.post-detail .content {
+.post-detail .photo-wrapper .photo {
+  width: 350px;
+  height: 300px;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.post-detail .content-wrapper {
   text-align: left;
   padding: 15px;
 }
