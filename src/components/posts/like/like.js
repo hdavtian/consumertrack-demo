@@ -8,26 +8,36 @@ export default class Like extends Component {
         super(props);
         this.state = {
             is_liked: null
-        }
+        };
+
+        this.handleClick = this.handleClick.bind(this);
     }
 
     handleClick() {
-        alert('clicked')
+        const url = 'https://dev-selfiegram.consumertrack.com/users/' + this.props.authorId + '/posts/' + this.props.postId + '/likes'
+        console.log('put url:', url);
+
+        axios
+            .put(url)
+            .then(res => this.setState({posts: res.data.posts}))
+            .catch(err => console.log(err));
+
+
     }
 
-    renderLikeElement(){
+    renderLikeElement() {
 
         const notLikedElement = <i className="fa fa-2x fa-heart-o" aria-hidden="true" onClick={this.handleClick}></i>;
         const likedElement = <i className="fa fa-2x fa-heartbeat" aria-hidden="true" onClick={this.handleClick}></i>;
 
-        if (this.state.is_liked === true) {;
+        if (this.state.is_liked === true) {
             return likedElement
         } else {
             return notLikedElement
         }
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.setState({
             is_liked: this.props.isLiked
         })
