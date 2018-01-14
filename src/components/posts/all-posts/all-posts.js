@@ -8,38 +8,12 @@ export default class AllPosts extends Component {
         super(props);
         this.state = {
             users: [],
+            postsLoaded: false,
             posts: []
         }
     }
 
-    /*
     componentDidMount() {
-
-        axios.all([
-            //axios.get('https://dev-selfiegram.consumertrack.com/users/1'),
-            axios.get('https://dev-selfiegram.consumertrack.com/users/2'),
-            axios.get('https://dev-selfiegram.consumertrack.com/users/3'),
-            axios.get('https://dev-selfiegram.consumertrack.com/users/4')
-        ])
-            .then(
-                axios.spread( (user2, user3, user4) => {
-
-                    let _allPosts = user2.data.posts
-                        .concat(user3.data.posts)
-                        .concat(user4.data.posts);
-
-                    this.setState({posts: _allPosts});
-                }))
-            .catch(err => console.log(err));
-
-        axios
-            .get('https://dev-selfiegram.consumertrack.com/users')
-            .then(res => this.setState({users: res.data}))
-            .catch(err => console.log(err));
-    };
-    */
-
-    componentDidMount(){
 
         axios
             .get('https://dev-selfiegram.consumertrack.com/users')
@@ -51,23 +25,29 @@ export default class AllPosts extends Component {
                 let userUrls = [];
                 let _allPosts = [];
 
-                for (let i=0, l = this.state.users.length; i<l; i++) {
-                    userUrls.push(axios.get('https://dev-selfiegram.consumertrack.com/users/'+this.state.users[i].id))
-                };
+                for (let i = 0, l = this.state.users.length; i < l; i++) {
+                    userUrls.push(axios.get('https://dev-selfiegram.consumertrack.com/users/' + this.state.users[i].id))
+                }
+                ;
 
                 // get posts of all users
                 axios
                     .all(userUrls)
-                    .then( (results) => {
-                        results.forEach( (res) => {
+                    .then((results) => {
+                        results.forEach((res) => {
                             _allPosts.push(res.data.posts);
                         });
                         // the result is an array of arrays, so need to flatten out, using reduce
-                        _allPosts = _allPosts.reduce((prev, curr) => {return prev.concat(curr)});
+                        _allPosts = _allPosts.reduce((prev, curr) => {
+                            return prev.concat(curr)
+                        });
 
                         //now set the state
                         //console.log('All posts:', _allPosts);
-                        this.setState({posts: _allPosts});
+                        this.setState({
+                            posts: _allPosts,
+                            postsLoaded: true
+                        });
                     })
                     .catch(err => console.log(err));
 
@@ -86,6 +66,10 @@ export default class AllPosts extends Component {
     };
 
     render() {
+
+        if (!this.state.postsLoaded){
+            <div>Loading ...</div>
+        }
 
         const _posts = this.state.posts.map((post) => {
             return <Post key={post.id} data={post} userId={this.getUserId(post, this.state.users)}/>

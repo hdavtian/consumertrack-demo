@@ -18,7 +18,7 @@ export default class Like extends Component {
     renderLikeElement(){
 
         const notLikedElement = <i className="fa fa-2x fa-heart-o" aria-hidden="true" onClick={this.handleClick}></i>;
-        const likedElement = <i className="fa fa-2x fa-heart" aria-hidden="true" onClick={this.handleClick}></i>;
+        const likedElement = <i className="fa fa-2x fa-heartbeat" aria-hidden="true" onClick={this.handleClick}></i>;
 
         if (this.state.is_liked === true) {;
             return likedElement
@@ -27,7 +27,7 @@ export default class Like extends Component {
         }
     }
 
-    componentWillMount(){
+    componentDidMount(){
         this.setState({
             is_liked: this.props.isLiked
         })
@@ -36,10 +36,9 @@ export default class Like extends Component {
     render() {
 
         return (
-            <div>
-                <p>isLiked: {this.state.is_liked}</p>
+            <div class="like-wrapper">
                 {this.renderLikeElement()}
-                <span>({this.props.count})</span>
+                <span class="like-count">({this.props.count})</span>
             </div>
         )
     }

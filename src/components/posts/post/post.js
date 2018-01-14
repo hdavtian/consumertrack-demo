@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Like from '../like/like';
 import './post.css';
 
 export default class Post extends Component {
@@ -7,9 +8,14 @@ export default class Post extends Component {
             <div className="post">
                 <a href={"#/post/" + this.props.userId + '/' + this.props.data.id}>
                     <div className="photo" style={{'backgroundImage': 'url(' + this.props.data.photo_url + ')'}}></div>
-                    <h5>{this.props.data.caption}</h5>
-                    <h6>By: {this.props.data.author}</h6>
                 </a>
+
+                <h5>{this.props.data.caption}</h5>
+                    <h6>By: {this.props.data.author}</h6>
+
+                    <Like
+                        count={this.props.data.likes_count}
+                        isLiked={this.props.data.is_liked} />
             </div>
         )
     }

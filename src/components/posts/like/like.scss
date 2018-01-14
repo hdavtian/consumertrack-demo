@@ -1,0 +1,31 @@
+.like-wrapper {
+
+  display: table;
+  position: relative;
+  margin: 0 auto;
+
+  .fa {
+    cursor: pointer;
+  }
+
+  .fa-heart-o {
+    display: table-cell;
+    vertical-align: middle;
+    color: #ccc;
+  }
+
+  .fa-heart, .fa-heartbeat {
+    display: table-cell;
+    vertical-align: middle;
+    color: red;
+  }
+
+  .like-count {
+    display: table-cell;
+    vertical-align: middle;
+    width: 25px;
+    font-size: 0.8em;
+  }
+
+
+}
