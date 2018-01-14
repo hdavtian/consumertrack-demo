@@ -88,11 +88,7 @@ export default class AllPosts extends Component {
     render() {
 
         const _posts = this.state.posts.map((post) => {
-            return (
-                <a key={post.id} href={"#/post/" + this.getUserId(post, this.state.users) + "/" + post.id}>
-                    <Post data={post}/>
-                </a>
-            )
+            return <Post key={post.id} data={post} userId={this.getUserId(post, this.state.users)}/>
         });
 
         return (
