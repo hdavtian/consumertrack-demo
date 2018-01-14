@@ -9,7 +9,6 @@ export default class Post extends Component {
                     <div className="photo" style={{'backgroundImage': 'url(' + this.props.data.photo_url + ')'}}></div>
                     <h5>{this.props.data.caption}</h5>
                     <h6>By: {this.props.data.author}</h6>
-                    <p>userId: {this.props.userId}</p>
                 </a>
             </div>
         )
