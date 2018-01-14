@@ -18,11 +18,9 @@ export default class Like extends Component {
         console.log('put url:', url);
 
         axios
-            .put(url)
-            .then(res => this.setState({posts: res.data.posts}))
+            .post(url)
+            .then()
             .catch(err => console.log(err));
-
-
     }
 
     renderLikeElement() {
