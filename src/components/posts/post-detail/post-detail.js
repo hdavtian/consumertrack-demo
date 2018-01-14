@@ -11,6 +11,10 @@ export default class PostDetail extends Component {
             loaded: false,
             post: {}
         }
+
+        let _url = this.props.location.pathname;
+        this.userId = _url.split('/')[2];
+        this.postId = _url.split('/')[3];
     };
 
     getPost() {
@@ -64,6 +68,8 @@ export default class PostDetail extends Component {
                         <div>{JSON.stringify(this.state.post)}</div>
 
                         <Like
+                            postId={this.postId}
+                            authorId={this.userId}
                             count={this.state.post.likes_count}
                             isLiked={this.state.post.is_liked} />
 
