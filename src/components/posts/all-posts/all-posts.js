@@ -8,8 +8,8 @@ export default class AllPosts extends Component {
         super(props);
         this.state = {
             users: [],
-            postsLoaded: false,
-            posts: []
+            posts: [],
+            postsLoaded: false
         }
     }
 
@@ -27,8 +27,7 @@ export default class AllPosts extends Component {
 
                 for (let i = 0, l = this.state.users.length; i < l; i++) {
                     userUrls.push(axios.get('https://dev-selfiegram.consumertrack.com/users/' + this.state.users[i].id))
-                }
-                ;
+                };
 
                 // get posts of all users
                 axios
@@ -40,6 +39,11 @@ export default class AllPosts extends Component {
                         // the result is an array of arrays, so need to flatten out, using reduce
                         _allPosts = _allPosts.reduce((prev, curr) => {
                             return prev.concat(curr)
+                        });
+
+                        // add author Id to each post
+                        _allPosts.forEach((post) => {
+                           post.authorId = this.getUserId(post, this.state.users)
                         });
 
                         //now set the state
@@ -57,7 +61,6 @@ export default class AllPosts extends Component {
     }
 
     getUserId(post, users) {
-
         for (let i = 0, l = users.length; i < l; i++) {
             if (users[i].handle === post.author) {
                 return users[i].id;
@@ -68,11 +71,11 @@ export default class AllPosts extends Component {
     render() {
 
         if (!this.state.postsLoaded){
-            <div>Loading ...</div>
+            return <div>Loading ...</div>
         }
 
         const _posts = this.state.posts.map((post) => {
-            return <Post key={post.id} data={post} userId={this.getUserId(post, this.state.users)}/>
+            return <Post key={post.id} data={post} userId={post.authorId} />
         });
 
         return (

@@ -36,9 +36,9 @@ export default class Like extends Component {
     render() {
 
         return (
-            <div class="like-wrapper">
+            <div className="like-wrapper">
                 {this.renderLikeElement()}
-                <span class="like-count">({this.props.count})</span>
+                <span className="like-count">({this.props.count})</span>
             </div>
         )
     }

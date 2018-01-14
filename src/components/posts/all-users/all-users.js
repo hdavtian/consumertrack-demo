@@ -4,30 +4,40 @@ import User from '../user/user';
 
 export default class AllUsers extends Component {
 
-  constructor(props){
-    super(props);
-    this.state = {
-      users: []
+    constructor(props) {
+        super(props);
+        this.state = {
+            users: [],
+            usersLoaded: false
+        }
     }
-  }
 
-  componentDidMount(){
-    axios
-      .get('https://dev-selfiegram.consumertrack.com/users')
-      .then(res => this.setState({users: res.data}))
-      .catch(err => console.log(err))
-  }
+    componentDidMount() {
+        axios
+            .get('https://dev-selfiegram.consumertrack.com/users')
+            .then(res => {
+                this.setState({
+                    users: res.data,
+                    usersLoaded: true
+                });
+            })
+            .catch(err => console.log(err))
+    }
 
-  render(){
+    render() {
 
-    const _users = this.state.users.map(function(user){
-      return <User key={user.id} data={user} />
-    })
+        if (!this.state.usersLoaded){
+            return <div>Loading ...</div>
+        }
 
-    return(
-      <div>
-        {_users}
-      </div>
-    )
-  }
+        const _users = this.state.users.map(function (user) {
+            return <User key={user.id} data={user}/>
+        });
+
+        return (
+            <div>
+                {_users}
+            </div>
+        )
+    }
 }

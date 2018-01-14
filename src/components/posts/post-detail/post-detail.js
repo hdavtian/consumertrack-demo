@@ -18,8 +18,6 @@ export default class PostDetail extends Component {
             userId = _url.split('/')[2],
             postId = _url.split('/')[3];
 
-        //console.log('userId:', userId, 'postId:', postId);
-
         axios
             .get('https://dev-selfiegram.consumertrack.com/users/' + userId)
             .then(
@@ -31,7 +29,6 @@ export default class PostDetail extends Component {
                                 loaded: true,
                                 post: _posts[i]
                             });
-                            console.log('post:', this.state.post);
                             return;
                         }
                     }
