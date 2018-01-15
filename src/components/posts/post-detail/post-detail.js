@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import Spinner from '../spinner/spinner';
 import Like from '../like/like';
 import './post-detail.css';
 
@@ -44,8 +45,11 @@ export default class PostDetail extends Component {
 
     render() {
 
-        if (!this.state.loaded) {
-            return <div>Loading...</div>
+        // show a loading spinner
+        if (!this.state.loaded){
+            return (
+                <Spinner />
+            )
         }
 
         return (

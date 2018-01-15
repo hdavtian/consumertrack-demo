@@ -32,7 +32,7 @@ export default class PostCreate extends Component {
         // console.log('photo_url', _photo_url);
         // console.log('caption', _caption);
 
-
+        /*
         axios
             .post(url, {
                 caption: _caption,
@@ -40,7 +40,7 @@ export default class PostCreate extends Component {
             })
             .then(res => console.log(res))
             .catch(err => console.log(err))
-
+        */
     }
 
     handleChange(event){

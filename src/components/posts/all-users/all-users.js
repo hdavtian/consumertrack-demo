@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import User from '../user/user';
+import Spinner from '../spinner/spinner';
 
 export default class AllUsers extends Component {
 
@@ -26,8 +27,11 @@ export default class AllUsers extends Component {
 
     render() {
 
+        // show a loading spinner
         if (!this.state.usersLoaded){
-            return <div>Loading ...</div>
+            return (
+                <Spinner />
+            )
         }
 
         const _users = this.state.users.map(function (user) {

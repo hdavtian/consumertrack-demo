@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import Post from '../post/post';
+import Spinner from '../spinner/spinner';
 
 export default class AllPosts extends Component {
 
@@ -70,8 +71,11 @@ export default class AllPosts extends Component {
 
     render() {
 
+        // show a loading spinner
         if (!this.state.postsLoaded){
-            return <div>Loading ...</div>
+            return (
+                <Spinner />
+            )
         }
 
         const _posts = this.state.posts.map((post) => {

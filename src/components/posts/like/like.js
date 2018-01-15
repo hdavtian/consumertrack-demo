@@ -54,16 +54,6 @@ export default class Like extends Component {
         }
     }
 
-    /*
-    // moved to constructor
-    componentDidMount() {
-        this.setState({
-            is_liked: this.props.isLiked,
-            likes_count: this.props.count
-        })
-    }
-    */
-
     render() {
 
         if (this.state.is_liked == null) {
