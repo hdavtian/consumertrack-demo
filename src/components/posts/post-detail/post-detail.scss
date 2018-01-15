@@ -1,12 +1,15 @@
 .post-detail {
 
+  width: 1024px;
+
   .photo-wrapper {
 
     .photo {
-      width: 350px;
+      width: 300px;
       height: 300px;
-      margin: 0 auto;
+      float: right;
       border: 1px solid #ccc;
+      border-radius: 15px;
       background-position: center center;
       background-size: cover;
       background-repeat: no-repeat;
@@ -15,8 +18,20 @@
   }//photo-wrapper
 
   .content-wrapper {
+
     text-align: left;
     padding: 15px;
-  }
+
+    .like-wrapper {
+      margin: 0;
+    }
+
+    .info {
+      font-size: 0.8em;
+      margin: 15px 0;
+      padding-left: 1.3em;
+    }
+
+  }//content-wrapper
 
 }//post-detail

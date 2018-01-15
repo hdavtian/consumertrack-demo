@@ -63,10 +63,8 @@ export default class PostDetail extends Component {
                     </div>
 
                     <div className="content-wrapper col-sm-6">
+
                         <h2>{this.state.post.caption}</h2>
-                        <p>By: {this.state.post.author}</p>
-                        <p>Liked: {this.state.post.is_liked}</p>
-                        <div>{JSON.stringify(this.state.post)}</div>
 
                         <Like
                             postId={this.postId}
@@ -74,10 +72,17 @@ export default class PostDetail extends Component {
                             count={this.state.post.likes_count}
                             isLiked={this.state.post.is_liked} />
 
+                        <ul className="info">
+                            <li>Id: {this.state.post.id}</li>
+                            <li>Photo_url: <a href={this.state.post.photo_url} target="_blank">link to image</a></li>
+                            <li>Caption: {this.state.post.caption}</li>
+                            <li>Is liked: {this.state.post.is_liked}</li>
+                            <li>Likes count: {this.state.post.likes_count}</li>
+                            <li>Author: {this.state.post.author}</li>
+                        </ul>
+
                     </div>
-
                 </div>
-
             </div>
         )
     }
