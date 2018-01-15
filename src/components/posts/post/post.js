@@ -13,9 +13,6 @@ export default class Post extends Component {
 
                 <h5>{this.props.data.caption}</h5>
                 <h6>By: {this.props.data.author}</h6>
-                <p>postId: {this.props.data.id}</p>
-                <p>postId: {this.props.data.id}</p>
-                <p>authorId: {this.props.data.authorId}</p>
 
                 <Like
                     postId={this.props.data.id}

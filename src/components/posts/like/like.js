@@ -7,8 +7,8 @@ export default class Like extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            is_liked: null,
-            likes_count: null
+            is_liked: this.props.isLiked,
+            likes_count: this.props.count
         };
 
         this.handleClick = this.handleClick.bind(this);
@@ -30,6 +30,7 @@ export default class Like extends Component {
                             for (let i=0, l=res.data.posts.length; i<l; i++) {
                                 if (res.data.posts[i].id === this.props.postId) {
                                     this.setState({
+                                        is_liked: true,
                                         likes_count: res.data.posts[i].likes_count
                                     });
                                     return;
@@ -53,12 +54,15 @@ export default class Like extends Component {
         }
     }
 
-    componentWillMount() {
+    /*
+    // moved to constructor
+    componentDidMount() {
         this.setState({
             is_liked: this.props.isLiked,
             likes_count: this.props.count
         })
     }
+    */
 
     render() {
 
