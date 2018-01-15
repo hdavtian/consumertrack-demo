@@ -19,7 +19,7 @@ export default class PostsByUser extends Component {
 
         this.setState({
             userId: userId
-        })
+        });
 
         // get own posts, we know the userId is 1
         axios
@@ -36,7 +36,6 @@ export default class PostsByUser extends Component {
         }
 
         const _posts = this.state.posts.map( (post)=>{
-            console.log('what is my id:', this.state.userId)
             return <Post key={post.id} data={post} userId={this.state.userId} />
         })
 
