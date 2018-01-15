@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import './App.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import {Router, Route, Switch} from 'react-router';
-import {createHashHistory, createBrowserHistory} from 'history';
+import {createHashHistory} from 'history';
 
 // my components
 import Header from './components/Header/header';
@@ -17,7 +17,6 @@ class App extends Component {
     render() {
 
         const hashHistory = createHashHistory();
-        const browserHistory = createBrowserHistory();
 
         return (
             <div className="App">

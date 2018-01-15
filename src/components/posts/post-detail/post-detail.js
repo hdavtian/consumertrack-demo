@@ -18,17 +18,14 @@ export default class PostDetail extends Component {
     };
 
     getPost() {
-        let _url = this.props.location.pathname,
-            userId = _url.split('/')[2],
-            postId = _url.split('/')[3];
 
         axios
-            .get('https://dev-selfiegram.consumertrack.com/users/' + userId)
+            .get('https://dev-selfiegram.consumertrack.com/users/' + this.userId)
             .then(
                 (res) => {
                     let _posts = res.data.posts;
                     for (let i = 0, l = _posts.length; i < l; i++) {
-                        if (_posts[i].id == postId) {
+                        if (_posts[i].id == this.postId) {
                             this.setState({
                                 loaded: true,
                                 post: _posts[i]
@@ -48,7 +45,7 @@ export default class PostDetail extends Component {
     render() {
 
         if (!this.state.loaded) {
-            return <div>Loading</div>
+            return <div>Loading...</div>
         }
 
         return (

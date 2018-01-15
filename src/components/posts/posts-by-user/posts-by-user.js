@@ -12,7 +12,7 @@ export default class PostsByUser extends Component {
         }
     }
 
-    componentDidMount() {
+    componentWillMount() {
 
         // get user Id from url
         const userId = this.props.location.pathname.split('\/')[2];
@@ -30,6 +30,10 @@ export default class PostsByUser extends Component {
     }
 
     render() {
+
+        if (this.state.userId == null) {
+            <div>Loading ...</div>
+        }
 
         const _posts = this.state.posts.map( (post)=>{
             return <Post key={post.id} data={post} userId={this.state.userId} />

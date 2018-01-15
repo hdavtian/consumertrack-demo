@@ -29,8 +29,9 @@ export default class Like extends Component {
                             // get the right post
                             for (let i=0, l=res.data.posts.length; i<l; i++) {
                                 if (res.data.posts[i].id === this.props.postId) {
-                                    console.log('likes count:',res.data.posts[i].likes_count)
-                                    this.setState({likes_count: res.data.posts[i].likes_count});
+                                    this.setState({
+                                        likes_count: res.data.posts[i].likes_count
+                                    });
                                     return;
                                 }
                             }
@@ -52,7 +53,7 @@ export default class Like extends Component {
         }
     }
 
-    componentDidMount() {
+    componentWillMount() {
         this.setState({
             is_liked: this.props.isLiked,
             likes_count: this.props.count

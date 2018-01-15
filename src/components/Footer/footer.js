@@ -6,7 +6,7 @@ export default class Footer extends React.Component {
     return(
       <footer>
         By: Harma Davtian <br />
-        <a href="https://github.com/hdavtian/consumertrack-demo" target="_blank">
+        <a href="https://github.com/hdavtian/consumertrack-demo" target="_blank" rel="noopener noreferrer">
           <i className="fa fa-3x fa-github" aria-hidden="true"></i>
         </a>
       </footer>
