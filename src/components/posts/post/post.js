@@ -19,7 +19,7 @@ export default class Post extends Component {
 
                 <Like
                     postId={this.props.data.id}
-                    authorId={this.props.data.authorId}
+                    authorId={this.props.userId}
                     count={this.props.data.likes_count}
                     isLiked={this.props.data.is_liked} />
             </div>

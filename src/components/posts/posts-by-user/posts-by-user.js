@@ -31,11 +31,12 @@ export default class PostsByUser extends Component {
 
     render() {
 
-        if (this.state.userId == null) {
+        if (this.state.userId === null) {
             <div>Loading ...</div>
         }
 
         const _posts = this.state.posts.map( (post)=>{
+            console.log('what is my id:', this.state.userId)
             return <Post key={post.id} data={post} userId={this.state.userId} />
         })
 
