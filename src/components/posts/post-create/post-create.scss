@@ -2,6 +2,10 @@
 
   .create-form {
 
+    .form-row {
+      margin-bottom: 15px;
+    }
+
     label, input {
       display: inline-block;
     }
@@ -9,6 +13,16 @@
     label {
       width: 100px;
       text-align: left;
+    }
+
+    input {
+      width: 100%;
+      padding: 3px 15px 3px 5px;
+
+      &.btn {
+        display: inline-block;
+        width: 120px;
+      }
     }
 
   }//create-form

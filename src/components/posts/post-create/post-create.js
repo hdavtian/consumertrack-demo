@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './post-create.css';
+import FormMessage from '../form-message/form-message';
 import axios from 'axios';
 
 export default class PostCreate extends Component {
@@ -7,6 +8,7 @@ export default class PostCreate extends Component {
     constructor(props){
         super(props);
         this.state = {
+            form_message: '',
             photo_url: '',
             caption: ''
         };
@@ -29,18 +31,30 @@ export default class PostCreate extends Component {
             return;
         };
 
-        // console.log('photo_url', _photo_url);
-        // console.log('caption', _caption);
-
-        /*
+        // form post
         axios
             .post(url, {
                 caption: _caption,
                 photo_url: _photo_url
             })
-            .then(res => console.log(res))
+            .then((res) => {
+
+                // show success msg
+                this.setState({
+                    form_message: 'Post has been successfully added :)',
+                    photo_url: '',
+                    caption: ''
+                });
+
+                // clear msg
+                window.setTimeout(()=>{
+                    this.setState({
+                        form_message: ''
+                    });
+                }, 3000)
+            })
             .catch(err => console.log(err))
-        */
+
     }
 
     handleChange(event){
@@ -59,30 +73,32 @@ export default class PostCreate extends Component {
 
                 <h3 className="title">Add a post</h3>
 
+                <FormMessage message={this.state.form_message} />
+
                 <form className="create-form" onSubmit={this.handleSubmit}>
 
                     <div className="form-row">
-                        <label htmlFor="photo_url">Photo Url: </label>
                         <input
                             id="photo_url"
                             name="photo_url"
                             type="text"
+                            placeholder="photo url"
                             value={this.state.photo_url}
                             onChange={this.handleChange} />
                     </div>
 
                     <div className="form-row">
-                        <label htmlFor="caption">Caption: </label>
                         <input
                             id="caption"
                             name="caption"
                             type="text"
+                            placeholder="caption"
                             value={this.state.caption}
                             onChange={this.handleChange}/>
                     </div>
 
                     <div className="form-row">
-                        <input type="submit" value="Add Post" />
+                        <input className="btn btn-primary" type="submit" value="Add Post" />
                     </div>
 
                 </form>
